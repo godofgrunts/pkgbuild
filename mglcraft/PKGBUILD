@@ -1,0 +1,39 @@
+pkgname='mglcraft'
+pkgver='b3bccdb4a89a26d958ca4afadc410d03960befd6'
+pkgrel=1
+pkgdesc="MGL Crafting Simulator"
+arch=('x86_64')
+url="https://github.com/Aaron-SP/mglcraft/archive"
+license=('GPL3')
+source=("$pkgname-$pkgver.zip::$url/$pkgver.zip")
+md5sums=('9df561e80a0be0fa76ab0d13b4f0f34b')
+
+build(){
+  cd "$pkgname-$pkgver"
+  
+  # Build native game binaries
+  mkdir -p bin/
+  make MGL_DESTDIR="/usr/include" build
+}
+
+package() {
+  cd "$pkgname-$pkgver"
+  
+  # Make folders
+  install -d ${pkgdir}/opt/mglcraft/bin
+  install -d ${pkgdir}/opt/mglcraft/data
+  install -d ${pkgdir}/usr/bin
+
+  # Copy bin folder
+  install -m 755 bin/* $pkgdir/opt/mglcraft/bin
+
+  # Copy game start script
+  install -m 755 mglcraft $pkgdir/opt/mglcraft
+
+  # Copy data folder
+  cp -r data/* $pkgdir/opt/mglcraft/data
+
+  # Symlink to the game script
+  ln -s /opt/mglcraft/mglcraft $pkgdir/usr/bin/mglcraft
+}
+

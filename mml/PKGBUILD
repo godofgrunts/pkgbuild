@@ -1,0 +1,17 @@
+pkgname='mml'
+pkgver='97dec66ceb2ff4bb88057cc0642610101e890318'
+pkgrel=1
+pkgdesc="An attempt at simplifying mathematical optimization"
+arch=('x86_64')
+url="https://github.com/Aaron-SP/mml/archive"
+license=('APL2.0')
+depends=('git')
+source=("$pkgname-$pkgver.zip::$url/$pkgver.zip")
+md5sums=('21140db382fd9c9e0714bd52ab5d6cca')
+
+package() {
+  cd "$pkgname-$pkgver"
+
+  # Install cpp source files
+  make MML_DESTDIR="$pkgdir/usr/include" install
+}
