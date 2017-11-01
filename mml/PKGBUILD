@@ -1,5 +1,5 @@
 pkgname='mml'
-pkgver='97dec66ceb2ff4bb88057cc0642610101e890318'
+pkgver='84bc96e049528fc5e5af3cfd0495f0827061ebad'
 pkgrel=1
 pkgdesc="An attempt at simplifying mathematical optimization"
 arch=('x86_64')
@@ -7,7 +7,7 @@ url="https://github.com/Aaron-SP/mml/archive"
 license=('APL2.0')
 depends=('git')
 source=("$pkgname-$pkgver.zip::$url/$pkgver.zip")
-md5sums=('21140db382fd9c9e0714bd52ab5d6cca')
+md5sums=('1e5c2a7371cb292d29b5083580f81488')
 
 package() {
   cd "$pkgname-$pkgver"
