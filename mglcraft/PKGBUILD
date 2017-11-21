@@ -1,12 +1,12 @@
 pkgname='mglcraft'
-pkgver='32900c27924e28150f313a2b2f8157d2bc00d7f4'
+pkgver='5288bebeceaff2c32d9dd1e8cb95940e1c1d5ed7'
 pkgrel=1
 pkgdesc="MGL Crafting Simulator"
 arch=('x86_64')
 url="https://github.com/Aaron-SP/mglcraft/archive"
 license=('GPL3')
 source=("$pkgname-$pkgver.zip::$url/$pkgver.zip")
-md5sums=('f82265e120208a8b055a825e4c8c8198')
+md5sums=('71348a14a924095bfe746989000b38eb')
 
 build(){
   cd "$pkgname-$pkgver"
