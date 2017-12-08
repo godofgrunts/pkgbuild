@@ -1,0 +1,39 @@
+pkgname='fractex'
+pkgver='d830ead08cab04aabf64b74f4b83b4dfb708ef56'
+pkgrel=1
+pkgdesc="MGL Fractal Explorer"
+arch=('x86_64')
+url="https://github.com/Aaron-SP/fractex/archive"
+license=('GPL3')
+source=("$pkgname-$pkgver.zip::$url/$pkgver.zip")
+md5sums=('54e2e3b61936e2c85e97a4d41650591f')
+
+build(){
+  cd "$pkgname-$pkgver"
+  
+  # Build native game binaries
+  mkdir -p bin/
+  make MGL_DESTDIR="/usr/include" build
+}
+
+package() {
+  cd "$pkgname-$pkgver"
+  
+  # Make folders
+  install -d ${pkgdir}/opt/fractex/bin
+  install -d ${pkgdir}/opt/fractex/data
+  install -d ${pkgdir}/usr/bin
+
+  # Copy bin folder
+  install -m 755 bin/* $pkgdir/opt/fractex/bin
+
+  # Copy game start script
+  install -m 755 fractex $pkgdir/opt/fractex
+
+  # Copy data folder
+  cp -r data/* $pkgdir/opt/fractex/data
+
+  # Symlink to the game script
+  ln -s /opt/fractex/fractex $pkgdir/usr/bin/fractex
+}
+

@@ -1,5 +1,5 @@
 pkgname='mgl'
-pkgver='51134db5d8e79a5d98bba0458d408f3dc1af5827'
+pkgver='d9c106e11dafe763ddddc4a6c11fd993324f75b2'
 pkgrel=1
 pkgdesc="An attempt at simplifying 3D graphics development"
 arch=('x86_64')
@@ -7,7 +7,7 @@ url="https://github.com/Aaron-SP/mgl/archive"
 license=('APL2.0')
 depends=('git' 'xorg-server' 'freetype2')
 source=("$pkgname-$pkgver.zip::$url/$pkgver.zip")
-md5sums=('ec4426f6fc1655ac1de49337c635666a')
+md5sums=('62acfa171dc5e3773dd4ae5890887386')
 
 package() {
   cd "$pkgname-$pkgver"
