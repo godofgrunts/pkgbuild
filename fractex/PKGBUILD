@@ -1,12 +1,12 @@
 pkgname='fractex'
-pkgver='d830ead08cab04aabf64b74f4b83b4dfb708ef56'
+pkgver='f2e59756a8efa288fa7d81030dbe047694f07004'
 pkgrel=1
 pkgdesc="MGL Fractal Explorer"
 arch=('x86_64')
 url="https://github.com/Aaron-SP/fractex/archive"
 license=('GPL3')
 source=("$pkgname-$pkgver.zip::$url/$pkgver.zip")
-md5sums=('54e2e3b61936e2c85e97a4d41650591f')
+md5sums=('8d939cf6b7c60cc67cd1e8edb3291a08')
 
 build(){
   cd "$pkgname-$pkgver"
