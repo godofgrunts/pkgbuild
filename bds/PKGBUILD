@@ -1,0 +1,39 @@
+pkgname='bds'
+pkgver='ee7d19e1786e9762238d45a6fbb9f028e79f1203'
+pkgrel=1
+pkgdesc="Beyond Dying Skies Official Simulation"
+arch=('x86_64')
+url="https://github.com/Aaron-SP/bds/archive"
+license=('GPL3')
+source=("$pkgname-$pkgver.zip::$url/$pkgver.zip")
+md5sums=('31efb019d130a2b9bb045e553ef514ab')
+
+build(){
+  cd "$pkgname-$pkgver"
+  
+  # Build native game binaries
+  mkdir -p bin/
+  make MGL_DESTDIR="/usr/include" build
+}
+
+package() {
+  cd "$pkgname-$pkgver"
+  
+  # Make folders
+  install -d ${pkgdir}/opt/bds/bin
+  install -d ${pkgdir}/opt/bds/data
+  install -d ${pkgdir}/usr/bin
+
+  # Copy bin folder
+  install -m 755 bin/* $pkgdir/opt/bds/bin
+
+  # Copy game start script
+  install -m 755 bds $pkgdir/opt/bds
+
+  # Copy data folder
+  cp -r data/* $pkgdir/opt/bds/data
+
+  # Symlink to the game script
+  ln -s /opt/bds/bds $pkgdir/usr/bin/bds
+}
+
