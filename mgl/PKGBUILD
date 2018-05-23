@@ -5,7 +5,7 @@ pkgdesc="An attempt at simplifying 3D graphics development"
 arch=('x86_64')
 url="https://github.com/Aaron-SP/mgl/archive"
 license=('APL2.0')
-depends=('git' 'xorg-server' 'freetype2' 'libvorbis' 'openal')
+depends=('git' 'xorg-server' 'xorg-server-devel' 'freetype2' 'libvorbis' 'openal')
 source=("$pkgname-$pkgver.zip::$url/$pkgver.zip")
 md5sums=('b28062baee9560d1927cfc1c1aa5a1bc')
 
