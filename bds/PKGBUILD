@@ -28,7 +28,7 @@ package() {
   install -m 755 bin/* $pkgdir/opt/bds/bin
 
   # Copy game start script
-  install -m 755 bds $pkgdir/opt/bds.game
+  install -m 755 bds.game $pkgdir/opt/bds.game
 
   # Copy data folder
   cp -r data/* $pkgdir/opt/bds/data
